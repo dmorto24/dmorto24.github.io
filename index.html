@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Social Media Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .content {
+            width: 60%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            width: 25%;
+            margin-left: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .post {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        .post:last-child {
+            border-bottom: none;
+        }
+
+        .post-header {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .post-content {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+
+        .profile h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .profile p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        .new-post {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .new-post textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            resize: none;
+            margin-bottom: 10px;
+        }
+
+        .new-post button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .new-post button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Simple Social Media
+    </header>
+
+    <div class="container">
+        <div class="content">
+            <div class="new-post">
+                <textarea placeholder="What's on your mind?" rows="3"></textarea>
+                <button>Post</button>
+            </div>
+
+            <div class="post">
+                <div class="post-header">Jane Doe</div>
+                <div class="post-content">
+                    Just had a great day at the park! 🌞
+                </div>
+            </div>
+
+            <div class="post">
+                <div class="post-header">John Smith</div>
+                <div class="post-content">
+                    Excited to start my new project today! 🚀
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="profile">
+                <img src="https://via.placeholder.com/100" alt="Profile Picture">
+                <h2>Jane
