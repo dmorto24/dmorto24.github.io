@@ -65,6 +65,10 @@
             background-color: #f5f8fa;
         }
 
+        .tweet-box input[type="file"] {
+            margin-bottom: 10px;
+        }
+
         .tweet-box button {
             background-color: #1da1f2;
             color: white;
@@ -97,6 +101,13 @@
         .tweet-content {
             margin-top: 10px;
             color: #657786;
+        }
+
+        .tweet-image {
+            margin-top: 10px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .profile {
@@ -140,7 +151,6 @@
         .nav-links a:hover {
             text-decoration: underline;
         }
-
     </style>
 </head>
 <body>
@@ -169,6 +179,7 @@
         <div class="content">
             <div class="tweet-box">
                 <textarea placeholder="What's happening?" rows="3"></textarea>
+                <input type="file" accept="image/*">
                 <button>Chirp</button>
             </div>
 
@@ -177,6 +188,7 @@
                 <div class="tweet-content">
                     Excited to launch this new app! #Chirp 🚀
                 </div>
+                <img src="https://via.placeholder.com/600x300" alt="Tweet Image" class="tweet-image">
             </div>
 
             <div class="tweet">
@@ -184,6 +196,7 @@
                 <div class="tweet-content">
                     Just saw the coolest movie! 🎥
                 </div>
+                <img src="https://via.placeholder.com/600x300" alt="Tweet Image" class="tweet-image">
             </div>
 
             <div class="tweet">
@@ -191,6 +204,7 @@
                 <div class="tweet-content">
                     Trying out this new Chirp app. Pretty neat so far! 👍
                 </div>
+                <img src="https://via.placeholder.com/600x300" alt="Tweet Image" class="tweet-image">
             </div>
         </div>
     </div>
