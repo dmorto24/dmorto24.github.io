@@ -4,17 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Forum</title>
-    <link rel="stylesheet" 
-            href="styles.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
+        /* Layout container for sidebar and content */
+        .forum-layout {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
 
-        .container {
+        .sidebar {
+            width: 20%;
+            background-color: white;
+            padding: 20px;
+            margin-right: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+
+        .forum-container {
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            margin-top: 20px;
-            width: 80%;
+            width: 60%;
             max-width: 800px;
         }
 
@@ -65,10 +81,10 @@
 <body>
 
 <header>
-    Simple Forum
+    Your Groups
 </header>
 
-<div class="container">
+<div class="forum-layout">
     <div class="sidebar">
         <div class="profile">
             <img src="https://via.placeholder.com/80" alt="Profile Picture">
@@ -85,36 +101,72 @@
             <li><a href="#">Settings</a></li>
         </ul>
     </div>
-    <div class="post-box">
-        <textarea id="postContent" rows="4" placeholder="Write your comment..."></textarea>
-        <button onclick="addPost()">Post</button>
+    <div class="forum-container">
+        <div class="post-box">
+            <textarea id="postContent" rows="4" placeholder="Write your comment..."></textarea>
+            <input type="file" id="fileInput" accept="image/*">
+            <button onclick="addPost()">Post</button>
+        </div>
+        
+        
+        <div id="postsContainer"></div>
     </div>
-    
-    <div id="postsContainer"></div>
 </div>
 
 <script>
-    // Array to store posts
-    let posts = [];
+    // Array to store posts (with some hardcoded posts)
+    let posts = [
+        {
+            author: 'Jane Doe',
+            content: 'Here are some files from my folder:',
+            folder: ['EvilPlans/malware.txt', 'EvilPlans'] // Array of file paths
+        },
+        {
+            author: 'John Smith',
+            content: 'Check out these images!',
+            folder: ['imgs/Taipura president.jpg']
+        }
+    ];
 
     // Function to add a new post
     function addPost() {
         const postContent = document.getElementById('postContent').value;
+        const fileInput = document.getElementById('fileInput');
+        let imageSrc = '';
 
-        if (postContent.trim()) {
-            const post = {
-                author: 'Anonymous', // In a real forum, this would be replaced with the user's actual name
-                content: postContent
+        if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                imageSrc = event.target.result;
+
+                const post = {
+                    author: 'Anonymous',
+                    content: postContent,
+                    image: imageSrc,
+                    folder: [] // No folder for dynamic posts
+                };
+                posts.unshift(post);
+
+                document.getElementById('postContent').value = '';
+                fileInput.value = '';
+
+                displayPosts();
             };
-            posts.push(post);
+            reader.readAsDataURL(file);
+        } else {
+            const post = {
+                author: 'Anonymous',
+                content: postContent,
+                image: '',
+                folder: [] // No folder for dynamic posts
+            };
+            posts.unshift(post);
 
-            // Clear the textarea
             document.getElementById('postContent').value = '';
 
-            // Display posts
             displayPosts();
-        } else {
-            alert('Please write something before posting.');
         }
     }
 
@@ -130,12 +182,29 @@
             postElement.innerHTML = `
                 <div class="post-author">${post.author}</div>
                 <div class="post-content">${post.content}</div>
+                ${post.image ? `<img src="${post.image}" class="post-image">` : ''}
+                ${post.folder.length > 0 ? displayFolderFiles(post.folder) : ''}
             `;
 
             postsContainer.appendChild(postElement);
         });
     }
+
+    // Function to render files from a folder
+    function displayFolderFiles(folder) {
+        return folder.map(filePath => `
+            <div class="folder-file">
+                <a href="${filePath}" target="_blank">${filePath.split('/').pop()}</a>
+            </div>
+        `).join('');
+    }
+
+    // Display posts when the page loads
+    window.onload = function() {
+        displayPosts();
+    };
 </script>
+
 
 </body>
 </html>

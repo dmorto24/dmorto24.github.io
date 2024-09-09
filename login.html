@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
-    <link rel="stylesheet" 
-            href="styles.css">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        
+        .login-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #e6ecf0; /* Background color similar to your main page */
+        }
+
         .login-container {
             background-color: white;
             padding: 40px;
@@ -15,7 +21,6 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             width: 300px;
             text-align: center;
-            
         }
 
         .login-container h2 {
@@ -52,35 +57,31 @@
     </style>
 </head>
 <body>
-
-    <div class="login-container" >
-        <h2>Login</h2>
-        <input type="text" id="username" placeholder="Username">
-        <input type="password" id="password" placeholder="Password">
-        <button onclick="login()">Login</button>
-        <p class="error-message" id="error-message">Invalid username or password.</p>
+    <div class="login-wrapper">
+        <div class="login-container">
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p class="error-message" id="error-message">Invalid username or password.</p>
+        </div>
     </div>
 
     <script>
         function login() {
-            // Get the input values
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
 
-            // Hardcoded credentials for demo purposes
             var validUsername = "user123";
             var validPassword = "password123";
 
-            // Basic validation
             if (username === validUsername && password === validPassword) {
                 alert("Login successful!");
-                window.location.href = "forum.html"
+                window.location.href = "forum.html";
             } else {
-                // Show error message
                 document.getElementById('error-message').style.display = 'block';
             }
         }
     </script>
-
 </body>
 </html>
