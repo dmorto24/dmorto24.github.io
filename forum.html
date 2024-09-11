@@ -119,7 +119,7 @@
         {
             author: 'Jane Doe',
             content: 'Here are some files from my folder:',
-            folder: ['EvilPlans/malware.txt', 'EvilPlans'] // Array of file paths
+            folder: ['EvilPlans.zip'] // Array of file paths
         },
         {
             author: 'John Smith',
@@ -190,11 +190,13 @@
         });
     }
 
-    // Function to render files from a folder
+    // Function to render files from a folder and make them downloadable
     function displayFolderFiles(folder) {
         return folder.map(filePath => `
             <div class="folder-file">
-                <a href="${filePath}" target="_blank">${filePath.split('/').pop()}</a>
+                <a href="${filePath}" download="${filePath.split('/').pop()}">
+                    Download ${filePath.split('/').pop()}
+                </a>
             </div>
         `).join('');
     }
@@ -203,6 +205,8 @@
     window.onload = function() {
         displayPosts();
     };
+
+
 </script>
 
 
