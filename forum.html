@@ -88,22 +88,22 @@
     <div class="sidebar">
         <div class="profile">
             <img src="https://via.placeholder.com/80" alt="Profile Picture">
-            <h2>Jane Doe</h2>
-            <p>@janedoe</p>
+            <h2>PRM Thrash</h2>
+            <p>@prmuser2</p>
         </div>
 
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="explore.html">Explore</a></li>
+            <!--<li><a href="explore.html">Explore</a></li>-->
             <li><a href="login.html">Groups</a></li>
         </ul>
     </div>
     <div class="forum-container">
-        <div class="post-box">
+      <!--  <div class="post-box">
             <textarea id="postContent" rows="4" placeholder="Write your comment..."></textarea>
             <input type="file" id="fileInput" accept="image/*">
             <button onclick="addPost()">Post</button>
-        </div>
+        </div>-->
         
         
         <div id="postsContainer"></div>
@@ -114,13 +114,28 @@
     // Array to store posts (with some hardcoded posts)
     let posts = [
         {
-            author: 'Jane Doe',
-            content: 'Here are some files from my folder:',
-            folder: ['EvilPlans.zip'] // Array of file paths
+            author: 'PRM Ghost',
+            content: 'The attached is more details about our upcoming operation please familarize yourself with it',
+            folder:[]
+        },
+        {
+            author: 'PRM Ghost',
+            content: 'We are deeply saddened by the murder of one of our PRM operators. Expect our operations to escalate. Fight Fight Fight',
+            folder:[]
+        },
+        {
+            author: 'Anonymous',
+            content: 'Operators please see the following map for the upcoming operation',
+            folder: ['imgs/detmap.jpg'] // Array of file paths
+        },
+        {
+            author: 'PRM Ghost',
+            content: 'Our operatives were able to capture the IDs of some of the U.S. operatives who were conducting operations in our soverign territory! Stay alert for these cadets. ',
+            folder: ['USTargets.zip'] // Array of file paths
         },
         {
             author: 'John Smith',
-            content: 'Check out these images!',
+            content: 'This is the man responsible for allowing the U.S. into our territory!',
             folder: ['imgs/Taipura president.jpg']
         }
     ];
